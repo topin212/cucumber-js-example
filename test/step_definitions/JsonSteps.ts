@@ -1,31 +1,26 @@
 import {binding, when} from "cucumber-tsflow";
 import {given, then} from "cucumber-tsflow/dist";
-import {assert} from "chai";
 
 @binding()
 export class JsonSteps {
-  private jsonString: string;
-  private result: object;
 
   constructor() {
   }
 
-  @given(/I get a json/)
-  public jsonResolver(json: string){
-    this.jsonString = json;
+  @given(/I am looking at my screen/)
+  public jsonResolver(json: string) {
+    //there can even be nothing in the implementation,
+    // but what's the point of life, the universe, and everything?
   }
 
-  @when(/I try to validate it/)
-  public jsonValidator(){
-    try{
-      this.result = JSON.parse(this.jsonString);
-    } catch (e) {
-    }
+  @when(/I launch this test/)
+  public jsonValidator() {
+    //how would you test that you ran your test?
   }
 
-  @then(/result should be a valid potato/)
-  public assertResult(){
-    assert.isTrue(this.result.hasOwnProperty("weight"));
-    assert.isTrue(this.result.hasOwnProperty("id"));
+  @then(/"hello-world" should be printed/)
+  public assertResult() {
+    console.log("hello-world");
+    //some out-of scope stub/stdio checks
   }
 }
